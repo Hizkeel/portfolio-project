@@ -1,0 +1,20 @@
+# will add the add which we dont want to commit ...go to website gitignore.io the code below is copied from that website 
+
+
+
+# Created by https://www.gitignore.io/api/django
+# Edit at https://www.gitignore.io/?templates=django
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/media
+/static
+
+
+
