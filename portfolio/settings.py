@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jobs.apps.JobsConfig', #go to jobs then apps then calss name which is JobsConfig 
+    'jobs.apps.JobsConfig', #go to jobs then apps then calss name which is JobsConfig placed in apps.py
+    'blog.apps.BlogConfig', # name of the second app ...go to blog then apps then class name BlogConfig which is in apps.py of blog folder
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
