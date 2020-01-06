@@ -46,65 +46,39 @@
   </head>
   <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">Hizkeel Khan</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href=" https://www.google.com.pk/"> Google </a>
-                <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
-                <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blogs</a>
-                
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'home' %}">Hizkeel Khan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link" href=" https://www.google.com.pk/"> Google </a>
+            <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
+            <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blogs</a>
+            
+          </div>
+        </div>
+      </nav>
 </header>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
     <div class="container">
-      <h1>Hi, Hizkeel here!</h1>
-      <p class="lead text-muted">Hello I'm Hizkeel and currently i am working on django to make awesome wesbites. although i am at the begineer level but getting better everyday with practice</p>
-      <p>
-        <a href="#" class="btn btn-primary my-2">Email Me!</a>
-        
-      </p>
-      <img class="img-fluid" src="{% static 'cropped.jpg' %}" height=200 width=200/>
-    </div>
-  </section>
+    <h1 class="text-center pt-3"> Welcome to my Blog! </h1>
+        <br/>
+     <h2> Latest Blogs</h2>   
+     <hr>
+     {% for blog in blogs.all %}
+      <h4> <a href="{% url 'blogdetail' blog.id %}" >{{ blog.title }} </a>  </h4> 
+      {{ blog.modified_date }} <br>
+      
+      <img class="img-fluid" src= "{{ blog.image.url }}" height= 200 width=200/> <!-- blog.title, pub_date, description and image all are taken from the models.py file -->
+      <br>
+      {{ blog.summary}} <br>
+      <br> <hr>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" src= "{{ job.image.url }}" />
-            <div class="card-body"> 
-              <p class="card-text"> {{job.summary}} </p>
-              <!-- the summary and image are from models.py file -->
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-        
-
-        
-        
-        
-
-        
-        
-        
-      </div>
-    </div>
-  </div>
-
+     {% endfor %}
+</div>
 </main>
 
 <footer class="text-muted">
