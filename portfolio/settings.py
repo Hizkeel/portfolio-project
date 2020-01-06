@@ -138,3 +138,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 #images folder is created in th views.py files where we say upload to 'media'
 
 MEDIA_URL = '/media/'
+
+
+try:
+    from local_settings import *
+
+except ImportError:
+    pass
